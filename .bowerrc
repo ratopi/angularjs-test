@@ -1,0 +1,5 @@
+{
+    "directory": "src/main/webapp/lib",
+    "proxy": "http://172.20.249.23:8080",
+    "httpsproxy": "http://172.20.249.23:8080"
+}

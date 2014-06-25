@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de" data-ng-app="atest">
+<head>
+	<title>AngularJS Test</title>
+
+	<!--main style and fonts-->
+	<link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="lib/toastr/toastr.css" rel="stylesheet">
+
+	<link href="css/basis.css" rel="stylesheet">
+	<link href="css/dokument.css" rel="stylesheet">
+
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div menu-directive></div>
+
+<div data-ng-view></div>
+
+<!-- jquery -->
+<script src="lib/jquery/dist/jquery.min.js"></script>
+
+<!-- angular js -->
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-route/angular-route.min.js"></script>
+<script src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+
+<!-- angular ui bootstrap -->
+<script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+
+<!-- external libraries -->
+<script src="lib/underscore/underscore.js"></script>
+<script src="lib/toastr/toastr.min.js"></script>
+
+<!-- application -->
+<script src="atest.js"></script>
+
+<!-- controllers -->
+<script src="controllers/startController.js"></script>
+
+<!-- directives -->
+<script src="directives/menuDirective.js"></script>
+
+<!-- services -->
+<script src="services/menuService.js"></script>
+
+</body>
+</html>

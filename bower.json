@@ -1,0 +1,32 @@
+{
+	"name": "angularjs-test",
+	"version": "0.1",
+	"dependencies": {
+		"angular": "~> 1.2.18",
+		"angular-animate": "~1.2.18",
+		"angular-bootstrap": "~0.11.0",
+		"angular-i18n": "~1.2.18",
+		"angular-local-storage": "~0.0.5",
+		"angular-resource": "~1.2.18",
+		"angular-route": "~1.2.18",
+		"angular-sanitize": "~1.2.18"
+		"angular-strap": "~2.0.3",
+		"angular-ui": "~0.4.0",
+		"bootstrap": "~3.1.1",
+		"font-awesome": "~4.1.0",
+		"jquery": "~2.1.1",
+		"jquery-ui": "~1.10.4",
+		"ng-table": "~0.3.3",
+		"ng-grid": "~2.0.11",
+		"toastr": "~2.0.3",
+		"underscore": "~1.6.0",
+	},
+	"ignore": [
+		"**/.*",
+		"bower_components",
+		"node_modules",
+		"tmp",
+		"test",
+		"tests"
+	]
+}
