@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col-md-4"></div>
+
+	<div class="col-md-1">
+		Label:
+	</div>
+
+	<div class="col-md-1">
+		<input data-ng-model="current.text" placeholder="type your todo here ...">
+	</div>
+
+	<div class="col-md-1">
+		<button class="btn btn-default" data-ng-click="save()">Save</button>
+	</div>
+	<div class="col-md-1">
+		<button class="btn btn-default" data-ng-click="new()">New</button>
+	</div>
+
+	<div class="col-md-4"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">ERROR {{error}}</div>
+	<div class="col-md-4"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-4"></div>
+
+	<div class="col-md-4">
+		<ul data-ng-repeat="todo in todos">
+			<li data-ng-click="select(todo)">{{todo.text}}</li>
+		</ul>
+	</div>
+
+	<div class="col-md-4"></div>
+</div>

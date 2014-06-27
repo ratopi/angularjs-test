@@ -18,6 +18,13 @@ angular
 					templateUrl : "views/test.html",
 				}
 			)
+			.when(
+				"/todo",
+				{
+					templateUrl : "views/todo.html",
+					controller: "todoController",
+				}
+			)
 			.otherwise(
 				{
 					redirectTo : "/start"

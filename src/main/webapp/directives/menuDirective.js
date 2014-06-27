@@ -42,8 +42,6 @@ angular
 								};
 
 								items.push( newItem );
-
-								console.log( newItem );
 							}
 						);
 
