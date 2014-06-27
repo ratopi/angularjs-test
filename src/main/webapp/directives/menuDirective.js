@@ -51,11 +51,12 @@ angular
 
 						refreshMenu = function( selectedPath )
 						{
-							for ( var index in items )
-							{
-								var item = items[ index ];
-								item.selected = item.id === selectedPath;
-							}
+							_.each(
+								items,
+								function( item ) {
+									item.selected = item.id === selectedPath;
+								}
+							);
 						};
 					},
 			};
