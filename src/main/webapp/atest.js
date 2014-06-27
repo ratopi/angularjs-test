@@ -31,34 +31,4 @@ angular
         appid: "atest"
 	}
 )
-
-.run(
-	function( $rootScope )
-	{
-		$rootScope.$on(
-			'$routeChangeSuccess',
-			function( e, current, pre )
-			{
-				console.log( "->" + current.$$route.originalPath );
-			}
-		);
-	}
-)
-
-.run(
-	[
-		'$rootScope', '$location', '$routeParams',
-		function( $rootScope, $location, $routeParams )
-		{
-			$rootScope.$on(
-				'$routeChangeSuccess',
-				function( e, current, pre )
-				{
-					console.log('Current route name: ' + $location.path());
-					// Get all URL parameter
-					console.log($routeParams);
-				}
-			);
-		}
-	]
-);
+;

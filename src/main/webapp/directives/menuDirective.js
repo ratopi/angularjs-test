@@ -1,4 +1,9 @@
 
+( function()
+{
+
+var refreshMenu;
+
 angular
 .module( "atest" )
 .directive(
@@ -43,10 +48,34 @@ angular
 						);
 
 						$scope.items = items;
+
+						refreshMenu = function( selectedPath )
+						{
+							for ( var index in items )
+							{
+								var item = items[ index ];
+								item.selected = item.id === selectedPath;
+							}
+						};
 					},
 			};
 
 			return o;
 		}
 	]
-);
+)
+.run(
+	function( $rootScope )
+	{
+		$rootScope.$on(
+			'$routeChangeSuccess',
+			function( e, current, pre )
+			{
+				refreshMenu( current.$$route.originalPath );
+			}
+		);
+	}
+)
+;
+
+} )();
