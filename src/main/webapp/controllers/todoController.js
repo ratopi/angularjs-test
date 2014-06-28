@@ -61,12 +61,14 @@ angular
 				function()
 				{
 					$scope.current = {};
+					update();
 				};
 
 			$scope.select =
 				function( todo )
 				{
 					$scope.current = todo;
+					update();
 				};
 
 			update();
