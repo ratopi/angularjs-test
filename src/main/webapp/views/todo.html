@@ -6,14 +6,15 @@
 				Existing TODOs
 				<span class="badge pull-right">{{todos.length}}</span>
 			</div>
-			<ul class="list-group">
-				<li class="list-group-item"
-				    data-ng-repeat="todo in todos"
-				    data-ng-class="{'active':todo === current}">
-					<span data-ng-click="select(todo)">{{todo.text}}</span>
+			<div class="list-group">
+				<a class="list-group-item"
+				   data-ng-repeat="todo in todos"
+				   data-ng-click="select(todo)"
+				   data-ng-class="{'active':todo._id === current._id}">
+					<span >{{todo.text}}</span>
 					<button class="pull-right btn btn-default btn-xs" title="delete entry" data-ng-click="delete(todo)">x</button>
-				</li>
-			</ul>
+				</a>
+			</div>
 		</div>
 	</div>
 
