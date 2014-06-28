@@ -48,6 +48,19 @@ angular
 
 			// ---
 
+			interface.deleteTodo = function( id, callback )
+			{
+				db.get(
+					id,
+					function ( err, oldDoc )
+					{
+						db.remove( oldDoc, callback );
+					}
+				);
+			};
+
+			// ---
+
 			interface.getTodos = function( success, error )
 			{
 				db.allDocs(

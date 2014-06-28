@@ -9,6 +9,16 @@ angular
 		{
 			$scope.current = {};
 
+			// ---
+
+			var standardCallback = function ( err, result )
+			{
+				$scope.current = {};
+				update();
+			};
+
+			// ---
+
 			var update =
 				function()
 				{
@@ -41,19 +51,13 @@ angular
 			$scope.save =
 				function()
 				{
-					var callback = function ( err, result )
-					{
-						$scope.current = {};
-						update();
-					};
-
 					if ( $scope.current._id )
 					{
-						todoService.updateTodo( $scope.current._id, $scope.current.text, callback );
+						todoService.updateTodo( $scope.current._id, $scope.current.text, standardCallback );
 					}
 					else
 					{
-						todoService.addTodo( $scope.current.text, callback );
+						todoService.addTodo( $scope.current.text, standardCallback );
 					}
 				};
 
@@ -69,6 +73,12 @@ angular
 				{
 					$scope.current = todo;
 					update();
+				};
+
+			$scope.delete =
+				function( todo )
+				{
+					todoService.deleteTodo( todo._id, standardCallback );
 				};
 
 			update();
