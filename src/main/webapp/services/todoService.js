@@ -15,48 +15,36 @@ angular
 
 			// ---
 
-			interface.addTodo = function( text, callback )
+			interface.addTodo = function( text )
 			{
 				var todo = {
-					_id: new Date().toISOString(),
+					added: new Date().toISOString(),
 					text: text,
 					completed: false
 				};
 
-				db.put( todo, callback );
+				return db.post( todo );
 			};
 
 			// ---
 
-			interface.updateTodo = function( id, text, callback )
+			interface.updateTodo = function( todo )
 			{
-				db.get(
-					id,
-					function ( err, oldDoc )
+				return db.put(
 					{
-						db.put(
-							{
-								_id: id,
-								_rev: oldDoc._rev,
-								text: text
-							},
-							callback
-						);
+						_id: todo._id,
+						_rev: todo._rev,
+						text: todo.text,
+						completed: todo.completed,
 					}
 				);
 			};
 
 			// ---
 
-			interface.deleteTodo = function( id, callback )
+			interface.deleteTodo = function( todo )
 			{
-				db.get(
-					id,
-					function ( err, oldDoc )
-					{
-						db.remove( oldDoc, callback );
-					}
-				);
+				return db.remove( todo );
 			};
 
 			// ---

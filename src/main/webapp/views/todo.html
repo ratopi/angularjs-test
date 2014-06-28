@@ -10,9 +10,17 @@
 				<a class="list-group-item"
 				   data-ng-repeat="todo in todos"
 				   data-ng-click="select(todo)"
-				   data-ng-class="{'active':todo._id === current._id}">
+				   data-ng-class="{'active':todo._id === current._id,'list-group-item-danger':!todo.completed}">
 					{{todo.text}}
-					<button class="pull-right btn btn-default btn-xs" title="delete entry" data-ng-click="delete(todo)">x</button>
+					<span class="pull-right btn-group">
+						<button class="btn btn-default btn-xs" title="check entry" data-ng-click="toggleCompleted(todo)">
+							<i class="fa fa-check-square-o" data-ng-if="todo.completed"></i>
+							<i class="fa fa-square-o" data-ng-if="! todo.completed"></i>
+						</button>
+						<button class="btn btn-default btn-xs" title="delete entry" data-ng-click="delete(todo)">
+							<i class="fa fa-times"></i>
+						</button>
+					</span>
 				</a>
 			</div>
 		</div>
@@ -24,7 +32,7 @@
 				TODO
 			</div>
 			<div class="panel-body">
-				<input data-ng-model="current.text" placeholder="type your todo here ...">
+				<textarea data-ng-model="current.text" placeholder="type your todo here ..."></textarea>
 			</div>
 			<div class="panel-footer">
 				<button class="btn btn-default" data-ng-click="save()" data-ng-disabled="! current.text">

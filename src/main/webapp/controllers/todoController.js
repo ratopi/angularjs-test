@@ -53,11 +53,15 @@ angular
 				{
 					if ( $scope.current._id )
 					{
-						todoService.updateTodo( $scope.current._id, $scope.current.text, standardCallback );
+						todoService
+							.updateTodo( $scope.current )
+							.then( standardCallback );
 					}
 					else
 					{
-						todoService.addTodo( $scope.current.text, standardCallback );
+						todoService
+							.addTodo( $scope.current.text )
+							.then( standardCallback );
 					}
 				};
 
@@ -67,6 +71,8 @@ angular
 					$scope.current = {};
 					update();
 				};
+
+			// ---
 
 			$scope.select =
 				function( todo )
@@ -78,8 +84,21 @@ angular
 			$scope.delete =
 				function( todo )
 				{
-					todoService.deleteTodo( todo._id, standardCallback );
+					todoService
+						.deleteTodo( todo )
+						.then( standardCallback );
 				};
+
+			$scope.toggleCompleted =
+				function( todo )
+				{
+					todo.completed = ! todo.completed;
+					todoService
+						.updateTodo( todo )
+						.then( standardCallback );
+				};
+
+			// ---
 
 			update();
 		}
