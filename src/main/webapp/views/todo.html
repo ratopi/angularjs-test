@@ -11,7 +11,7 @@
 				   data-ng-repeat="todo in todos"
 				   data-ng-click="select(todo)"
 				   data-ng-class="{'active':todo._id === current._id}">
-					<span >{{todo.text}}</span>
+					{{todo.text}}
 					<button class="pull-right btn btn-default btn-xs" title="delete entry" data-ng-click="delete(todo)">x</button>
 				</a>
 			</div>
@@ -27,8 +27,12 @@
 				<input data-ng-model="current.text" placeholder="type your todo here ...">
 			</div>
 			<div class="panel-footer">
-				<button class="btn btn-default" data-ng-click="save()">Save</button>
-				<button class="btn btn-default" data-ng-click="new()">New</button>
+				<button class="btn btn-default" data-ng-click="save()" data-ng-disabled="! current.text">
+					Save
+				</button>
+				<button class="btn btn-default" data-ng-click="new()" data-ng-disabled="! current._id">
+					New
+				</button>
 			</div>
 		</div>
 	</div>
