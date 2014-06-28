@@ -15,7 +15,7 @@ angular
 
 			// ---
 
-			interface.addTodo = function( text )
+			interface.addTodo = function( text, callback )
 			{
 				var todo = {
 					_id: new Date().toISOString(),
@@ -23,21 +23,12 @@ angular
 					completed: false
 				};
 
-				db.put(
-					todo,
-					function callback( err, result )
-					{
-						if ( ! err )
-						{
-							// console.log( 'Successfully posted a todo!' );
-						}
-					}
-				);
+				db.put( todo, callback );
 			};
 
 			// ---
 
-			interface.updateTodo = function( id, text )
+			interface.updateTodo = function( id, text, callback )
 			{
 				db.get(
 					id,
@@ -49,9 +40,7 @@ angular
 								_rev: oldDoc._rev,
 								text: text
 							},
-							function(err, response)
-							{
-							}
+							callback
 						);
 					}
 				);

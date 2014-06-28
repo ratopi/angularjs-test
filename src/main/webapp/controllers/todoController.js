@@ -41,17 +41,20 @@ angular
 			$scope.save =
 				function()
 				{
+					var callback = function ( err, result )
+					{
+						$scope.current = {};
+						update();
+					};
+
 					if ( $scope.current._id )
 					{
-                        todoService.updateTodo( $scope.current._id, $scope.current.text );
+						todoService.updateTodo( $scope.current._id, $scope.current.text, callback );
 					}
-                    else
-                    {
-						todoService.addTodo( $scope.current.text );
-                    }
-
-					$scope.current = {};
-					update();
+					else
+					{
+						todoService.addTodo( $scope.current.text, callback );
+					}
 				};
 
 			$scope.new =
