@@ -2,7 +2,10 @@
 
 	<div class="col-md-4">
 		<div class="panel panel-default">
-			<div class="panel-heading">Existing TODOs</div>
+			<div class="panel-heading">
+				Existing TODOs
+				<span class="badge pull-right">{{todos.length}}</span>
+			</div>
 			<ul class="list-group">
 				<li class="list-group-item"
 				    data-ng-repeat="todo in todos"
@@ -16,7 +19,9 @@
 
 	<div class="col-md-4">
 		<div class="panel panel-default">
-			<div class="panel-heading">TODO</div>
+			<div class="panel-heading">
+				TODO
+			</div>
 			<div class="panel-body">
 				<input data-ng-model="current.text" placeholder="type your todo here ...">
 			</div>
